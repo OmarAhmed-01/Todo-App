@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const Login = () => {
 
-  const { serverLink } = useContext(Context);
+  const { serverLink, navigate } = useContext(Context);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,6 +32,7 @@ const Login = () => {
       if(response.data.token){
         localStorage.setItem('token', response.data.token);
         alert('Login Successful!');
+        navigate('/');
       }
     } catch (error) {
       console.log(error);
