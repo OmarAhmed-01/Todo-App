@@ -5,7 +5,7 @@ import './register.css';
 
 const Register = () => {
 
-  const { serverLink } = useContext(Context); 
+  const { serverLink, navigate } = useContext(Context); 
 
   const [fullname, setFullname] = useState("");
   const [username, setUsername] = useState("");
@@ -39,6 +39,7 @@ const Register = () => {
         setUsername("");
         setEmail("");
         setPassword("");
+        navigate('/login');
       }
     } catch (error) {
       console.log("Error sending data to server");

@@ -1,0 +1,91 @@
+.login-wrapper{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("../../assets/Register_login_background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.login-wrapper .login-window{
+    width: 30%;
+    height: 80%;
+    border-radius: 20px;
+    position: absolute;
+    background-color: white;
+    box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.1), -2px 2px 5px rgba(0, 0, 0, 0.05);
+}
+.login-info{
+    height: 100%;
+}
+.login-info form{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px;
+    height: 100%;
+    justify-content: space-between;
+}
+.login-info .form-headers{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.login-info .form-headers h1{
+    text-align: center;
+}
+.login-info .form-headers h2{
+    font-size: 1.2rem;
+    text-align: center;
+}
+.login-info .form-inputs{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: -200px;
+}
+.login-info .form-inputs input{
+    height: 40px;
+    padding: 0px 10px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+}
+.login-info .form-inputs input:focus{
+    border-color: #007bff;
+    outline: none;
+}
+.login-info .form-submit{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.login-info .form-submit a{
+    cursor: pointer;
+    text-decoration: none;
+    color: red;
+}
+.login-info .form-submit button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    outline: none;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    background-size: 200% 200%;
+    background-position: left;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: background-position 0.3s ease;
+}
+.login-info .form-submit button:hover{
+    background-position: right;
+}
