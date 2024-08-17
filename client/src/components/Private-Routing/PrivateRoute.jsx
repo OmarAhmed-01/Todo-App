@@ -4,7 +4,6 @@ import { Navigate } from 'react-router-dom';
 
 const PrivateRoute = ({ children }) => {
 
-    const { navigate } = useContext(Context);
     const token = localStorage.getItem('token');
 
     if(token){
