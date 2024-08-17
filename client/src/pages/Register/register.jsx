@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios';
 import { Context } from '../../context/context';
+import './register.css';
 
 const Register = () => {
 
@@ -50,13 +51,20 @@ const Register = () => {
       <div className="register-window">
         <div className="register-info">
           <form action="" onSubmit={submitRegister}>
-            <h1>Register</h1>
-            <input type="text" value={fullname} onChange={handleNameChange} placeholder='fullname'/>
-            <input type="text" value={username} onChange={handleUsernameChange} placeholder='username'/>
-            <input type="email" value={email} onChange={handleEmailChange} placeholder='email'/>
-            <input type="password" value={password} onChange={handlePasswordChange} placeholder='password'/>
-            <p>Already have an account?</p>
-            <button type='submit'>Register</button>
+            <div className="form-headers">
+              <h1>Register</h1>
+              <h2>Create your account to start your journey!</h2>
+            </div>
+            <div className="form-inputs">
+              <input type="text" value={fullname} onChange={handleNameChange} placeholder='fullname'/>
+              <input type="text" value={username} onChange={handleUsernameChange} placeholder='username'/>
+              <input type="email" value={email} onChange={handleEmailChange} placeholder='email'/>
+              <input type="password" value={password} onChange={handlePasswordChange} placeholder='password'/>
+            </div>
+            <div className="form-submit">
+              <a href='/login'>Already have an account?</a>
+              <button type='submit'>Register</button>
+            </div>
           </form>
         </div>
       </div>
