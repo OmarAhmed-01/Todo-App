@@ -2,12 +2,13 @@ import { createContext } from "react";
 
 export const Context = createContext(null);
 
-const contextProvider = (props) => {
+const ContextProvider = (props) => {
 
+    const serverLink = "http://localhost:3000/";
 
-    const contextValue = () => {
-
-    }
+    const contextValue = {
+        serverLink
+    };
 
     return (
         <Context.Provider value={contextValue}>
@@ -16,4 +17,4 @@ const contextProvider = (props) => {
     );
 }
 
-export default contextProvider;
+export default ContextProvider;
