@@ -22,7 +22,7 @@ async function login(req, res) {
             return res.status(200).json({ success: true, token });
         }
         else{
-            return res.status(404).json({ success: true, message: "Email or password are incorrect"});
+            return res.status(404).json({ success: false, message: "Email or password are incorrect"});
         }
     } catch (error) {
         console.log(error);
