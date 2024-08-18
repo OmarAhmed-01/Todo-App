@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Context } from '../../context/context.jsx';
 import axios from 'axios';
+import Navbar from '../../components/Navbar/Navbar.jsx';
 
 const Dashboard = () => {
 
@@ -12,9 +13,9 @@ const Dashboard = () => {
 
 
   return (
-    <div>
-      
-    </div>
+    <>
+      <Navbar/>
+    </>
   )
 }
 

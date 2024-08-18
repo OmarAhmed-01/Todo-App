@@ -10,6 +10,7 @@ const ContextProvider = (props) => {
 
     const serverLink = "http://localhost:3000/";
     const navigate = useNavigate();
+
     async function fetchUser() {
         const token = localStorage.getItem('token');
         if(!token){
@@ -31,11 +32,17 @@ const ContextProvider = (props) => {
         }
     }
 
+    function removeToken() {
+        localStorage.removeItem('token');
+        navigate('/login');
+    }
+
     const contextValue = {
         serverLink,
         navigate,
         loggedInUser,
         fetchUser,
+        removeToken,
     };
 
     return (
