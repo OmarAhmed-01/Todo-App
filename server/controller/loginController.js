@@ -1,7 +1,7 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import userModel from '../models/Users.js';
-import secret from '../middleware/secret.js';
+import base64Secret from '../middleware/secret.js';
 async function login(req, res) {
     try {
         const user = await userModel.findOne({
@@ -15,11 +15,13 @@ async function login(req, res) {
         const isPasswordValid = await bcrypt.compare(req.body.password, user.password);
         
         if(isPasswordValid){
+            const originalSecret = Buffer.from(base64Secret, 'base64').toString('utf-8');
+
             const token = jwt.sign({
                 userId: user._id,
                 email: user.email,
                 fullname: user.fullname,
-            }, secret);
+            }, originalSecret, { algorithm: 'HS256' });
             return res.status(200).json({ success: true, token });
         }
         else{

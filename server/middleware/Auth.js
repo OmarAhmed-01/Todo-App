@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
-import secret from './secret.js';
+import base64Secret from './secret.js';
+
 
 function authMiddleware(req, res, next) {
     const token = req.header('Authorization').replace('Bearer ', '').trim();
@@ -8,7 +9,8 @@ function authMiddleware(req, res, next) {
         return res.status(401).json({ success: false, message: "No token, authorization denied" });
     }
     try {
-        const decoded = jwt.verify(token, secret);
+        const originalSecret = Buffer.from(base64Secret, 'base64').toString('utf-8');
+        const decoded = jwt.verify(token, originalSecret);
         req.user = decoded;
         next();
     } catch (error) {

@@ -4,6 +4,7 @@ import { connect_database } from './config/database.js';
 import cors from 'cors';
 import loginRouter from './routes/loginRoute.js';
 import registerRouter from './routes/registerRoute.js';
+import taskRouter from './routes/taskRoute.js';
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ app.get('/', (req, res) => {
 
 app.use('/api', registerRouter);
 app.use('/api', loginRouter);
+app.use('/api', taskRouter);
 
 app.listen(port, () => {
   console.log(`Server started on http://localhost:${port}`);
