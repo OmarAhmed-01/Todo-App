@@ -1,7 +1,7 @@
 .navbar-wrapper{
     width: 100vw;
     display: flex;
-    padding: 20px;
+    padding: 10px 20px;
     align-items: center;
     background-color: #EEEEEE;
 }
@@ -12,6 +12,7 @@
     cursor: pointer;
     width: fit-content;
     color: #071952;
+    font-size: 1.5rem;
 }
 .navbar-wrapper .navbar-details{
     width: 50%;
@@ -24,6 +25,7 @@
     justify-content: center;
     align-items: center;
     color: #071952;
+    font-size: 1rem;
 }
 .navbar-wrapper .navbar-details button{
     font-size: 1rem;

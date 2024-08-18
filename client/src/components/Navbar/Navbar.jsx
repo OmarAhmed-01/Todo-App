@@ -20,7 +20,7 @@ const Navbar = () => {
             <h1 onClick={handleLogoClick}>Harmonize.</h1>
         </div>
         <div className="navbar-details">
-            <h1>{loggedInUser.username}</h1>
+            <h1>@{loggedInUser.username}</h1>
             <button onClick={removeToken}>Logout</button>
         </div>
     </div>

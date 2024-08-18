@@ -1,0 +1,56 @@
+.addTasks-wrapper{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+.addTask-form form{
+    width: 100%;
+}
+.addTasks-wrapper .addTask-form form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.addTasks-wrapper .addTask-form form .addTask-form-title input{
+    width: 30%;
+    font-size: 1rem;
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.addTasks-wrapper .addTask-form form .addTask-form-information{
+    display: flex;
+    gap: 10px;
+}
+.addTasks-wrapper .addTask-form form .addTask-form-information input{
+    width: 70%;
+    font-size: 1rem;
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.addTasks-wrapper .addTask-form form .addTask-form-information button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 34px;
+    height: 34px; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #0D7C66;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.2s all;
+}
+.addTasks-wrapper .addTask-form form .addTask-form-information button:hover{
+    background-color: #095647;
+    transition: 0.2s all;
+}
+.addTasks-wrapper .addTask-form form .addTask-form-information button img{
+    width: 23px;
+    height: 23px;
+}
