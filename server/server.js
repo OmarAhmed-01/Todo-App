@@ -20,7 +20,6 @@ app.get('/', (req, res) => {
 
 app.use('/api', registerRouter);
 app.use('/api', loginRouter);
-app.use('/api/login', loginRouter)
 
 app.listen(port, () => {
   console.log(`Server started on http://localhost:${port}`);

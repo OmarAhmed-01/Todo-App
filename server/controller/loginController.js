@@ -16,6 +16,7 @@ async function login(req, res) {
         
         if(isPasswordValid){
             const token = jwt.sign({
+                userId: user._id,
                 email: user.email,
                 fullname: user.fullname,
             }, secret);
@@ -32,11 +33,11 @@ async function login(req, res) {
 
 async function getUser(req, res) {
     try {
-        const user = await userModel.findById(req.user).select('-password');
+        const user = await userModel.findById(req.user.userId).select('-password');
         if(!user){
             return res.status(404).json({ success: false, message: "User not found" });
         }
-        return res.status(200).json({ success: true, User:user });
+        return res.status(200).json({ success: true, user: user });
     } catch (error) {
         console.log(error);
         return res.status(500).json({ success: false, error: error.message });
