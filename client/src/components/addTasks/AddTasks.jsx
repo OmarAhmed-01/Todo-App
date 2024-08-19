@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './addTasks.css';
-import { addSign } from '../../assets/assets';
+import { addSign } from '../../assets/assets.js';
+import axios from 'axios';
+import { Context } from '../../context/context.jsx';
 
 const AddTasks = () => {
 
+    const { submitTask } = useContext(Context);
     const [taskTitle, setTaskTitle] = useState("");
     const [taskDesc, setTaskDesc] = useState("");
 
@@ -14,15 +17,11 @@ const AddTasks = () => {
         setTaskDesc(event.target.value);
     }
 
-    const data = {
-        taskTitle, taskDesc
-    };
-
-    useEffect(() => {
-        console.log(data); 
-    }, [taskTitle, taskDesc]);
-
-    
+    async function handleSubmit(event) {
+        await submitTask(event, taskTitle, taskDesc);
+        setTaskTitle("");
+        setTaskDesc("");
+    }
 
   return (
     <div className='addTasks-wrapper'>
@@ -30,7 +29,7 @@ const AddTasks = () => {
             <h1>Create a new task</h1>
         </div>
         <div className="addTask-form">
-            <form >
+            <form onSubmit={handleSubmit}>
                 <div className="addTask-form-title">
                     <input type="text" placeholder='Title' value={taskTitle} onChange={handleTaskTitle}/>
                 </div>

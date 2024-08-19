@@ -30,12 +30,55 @@ const ContextProvider = (props) => {
             console.log(error);
             navigate('/login');
         }
-    }
+    };
+
+    async function submitTask(event, taskTitle, taskDesc) {
+        try {
+            event.preventDefault();
+            const token = localStorage.getItem('token');
+            const data = {
+                title: taskTitle,
+                desc: taskDesc
+            };
+
+            const response = await axios.post(serverLink+"api/addTask", data, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            if(response.status === 200 || response.status === 201){
+                console.log('Task added successfully');
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    async function submitLogin(event, email, password, setUser) {
+        try {
+          event.preventDefault();
+          const data = {
+            email, password
+          };
+    
+          const response = await axios.post(serverLink+'api/login', data);
+          if(response.status == "200"){
+            setUser(response.data);
+          }
+          if(response.data.token){
+            localStorage.setItem('token', response.data.token);
+            alert('Login Successful!');
+            navigate('/');
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }
 
     function removeToken() {
         localStorage.removeItem('token');
         navigate('/login');
-    }
+    };
 
     const contextValue = {
         serverLink,
@@ -43,6 +86,8 @@ const ContextProvider = (props) => {
         loggedInUser,
         fetchUser,
         removeToken,
+        submitTask,
+        submitLogin,
     };
 
     return (
