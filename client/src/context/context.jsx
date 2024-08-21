@@ -7,9 +7,64 @@ export const Context = createContext(null);
 const ContextProvider = (props) => {
 
     const [loggedInUser, setLoggedInUser] = useState({});
+    const [tasks, setTasks] = useState([]);
 
     const serverLink = "http://localhost:3000/";
     const navigate = useNavigate();
+
+    function formateDateTime(dateString) {
+        const date = new Date(dateString);
+        
+        const dateStringFormat = date.toLocaleDateString('en-GB');
+        const timeStringFormat = date.toLocaleTimeString('en-GB', {
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+
+        return `${dateStringFormat} ${timeStringFormat}`;
+    }
+
+    async function fetchTasks() {
+        const token = localStorage.getItem('token');
+        if(!token){
+            alert('Please login');
+            navigate('/login');
+            return;
+        }
+        try {
+            const response = await axios.get(serverLink+"api/fetchTask", {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            setTasks(response.data.task);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    async function submitTask(event, taskTitle, taskDesc) {
+        try {
+            event.preventDefault();
+            const token = localStorage.getItem('token');
+            const data = {
+                title: taskTitle,
+                desc: taskDesc
+            };
+
+            const response = await axios.post(serverLink+"api/addTask", data, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            if(response.status === 200 || response.status === 201){
+                console.log('Task added successfully');
+                fetchTasks();
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     async function fetchUser() {
         const token = localStorage.getItem('token');
@@ -32,27 +87,6 @@ const ContextProvider = (props) => {
         }
     };
 
-    async function submitTask(event, taskTitle, taskDesc) {
-        try {
-            event.preventDefault();
-            const token = localStorage.getItem('token');
-            const data = {
-                title: taskTitle,
-                desc: taskDesc
-            };
-
-            const response = await axios.post(serverLink+"api/addTask", data, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
-            if(response.status === 200 || response.status === 201){
-                console.log('Task added successfully');
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    };
 
     async function submitLogin(event, email, password, setUser) {
         try {
@@ -88,6 +122,10 @@ const ContextProvider = (props) => {
         removeToken,
         submitTask,
         submitLogin,
+        formateDateTime,
+        fetchTasks,
+        tasks,
+        setTasks,
     };
 
     return (

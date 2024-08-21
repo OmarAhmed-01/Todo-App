@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './addTasks.css';
 import { addSign } from '../../assets/assets.js';
-import axios from 'axios';
 import { Context } from '../../context/context.jsx';
 
 const AddTasks = () => {
@@ -9,6 +8,7 @@ const AddTasks = () => {
     const { submitTask } = useContext(Context);
     const [taskTitle, setTaskTitle] = useState("");
     const [taskDesc, setTaskDesc] = useState("");
+    
 
     function handleTaskTitle(event) {
         setTaskTitle(event.target.value);

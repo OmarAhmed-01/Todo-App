@@ -3,10 +3,11 @@ import { Context } from '../../context/context.jsx';
 import axios from 'axios';
 import Navbar from '../../components/Navbar/Navbar.jsx';
 import AddTasks from '../../components/addTasks/AddTasks.jsx';
+import FetchTasks from '../../components/fetchAllTasks/FetchTasks.jsx';
 
 const Dashboard = () => {
 
-  const { loggedInUser, fetchUser } = useContext(Context);
+  const { fetchUser } = useContext(Context);
 
   useEffect(() => {
     fetchUser();
@@ -17,6 +18,7 @@ const Dashboard = () => {
     <>
       <Navbar/>
       <AddTasks/>
+      <FetchTasks/>
     </>
   )
 }
