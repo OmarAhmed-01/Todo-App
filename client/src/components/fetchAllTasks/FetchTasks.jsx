@@ -5,7 +5,7 @@ import { Context } from '../../context/context.jsx';
 
 const FetchTasks = () => {
 
-    const { formateDateTime, fetchTasks, tasks } = useContext(Context);
+    const { formateDateTime, fetchTasks, tasks, deleteTask } = useContext(Context);
 
     useEffect(() => {
         fetchTasks();
@@ -29,7 +29,7 @@ const FetchTasks = () => {
                     <div className="task-buttons">
                         <button><img src={checkSign} alt="" /></button>
                         <button><img src={priorityHigh} alt="" /></button>
-                        <button><img src={deleteIcom} alt="" /></button>
+                        <button onClick={() => deleteTask(task._id)}><img src={deleteIcom} alt="" /></button>
                     </div>
                 </div>
             ))

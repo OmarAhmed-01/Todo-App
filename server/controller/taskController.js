@@ -21,14 +21,27 @@ async function addTask(req, res) {
 async function getTask(req, res) {
     try {
         const task = await taskModel.find({ user: req.user.userId });
-        if(!task || task.length === 0){
-            return res.status(404).json({ success: false, message: "Task not found for this user"});
-        }
         return res.status(200).json({ success: true, task: task});
     } catch (error) {
         console.log(error);
         return res.status(500).json({ success: false, error: error.message });
     }
-}
+};
 
-export { addTask, getTask };
+async function deleteTask(req, res) {
+    try {
+        const task_id = req.body.id;
+        const task = await taskModel.findById(task_id);
+        if(!task){
+            return res.status(404).json({ status: false, message: "No task found"});
+        }
+        else{
+            await taskModel.findByIdAndDelete(task_id);
+            return res.status(200).json({ success: true, message: "OK" });
+        }
+    } catch (error) {
+        return res.status(500).json({ success: false, message: "Error deleting task"});
+    }
+};
+
+export { addTask, getTask, deleteTask };

@@ -37,7 +37,7 @@ const ContextProvider = (props) => {
                     Authorization: `Bearer ${token}`
                 }
             });
-            setTasks(response.data.task);
+            setTasks(response.data.task || []);
         } catch (error) {
             console.log(error);
         }
@@ -63,6 +63,19 @@ const ContextProvider = (props) => {
             }
         } catch (error) {
             console.log(error);
+        }
+    };
+
+    async function deleteTask(id) {
+        try {
+            const response = await axios.delete(serverLink+'api/deleteTask', {
+                data: {id: id}
+            });
+            if(response.status === 200 || response.status === 201){
+                fetchTasks();
+            }
+        } catch (error) {
+            alert("Error delete Task", error.message);
         }
     };
 
@@ -126,6 +139,7 @@ const ContextProvider = (props) => {
         fetchTasks,
         tasks,
         setTasks,
+        deleteTask,
     };
 
     return (
