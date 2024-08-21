@@ -44,4 +44,20 @@ async function deleteTask(req, res) {
     }
 };
 
-export { addTask, getTask, deleteTask };
+async function updateTask(req, res) {
+    try {
+        const task_id = req.params.id;
+        const updatedTask = { ...req.body };
+
+        const result = await taskModel.findByIdAndUpdate(task_id, updatedTask, { new: true });
+
+        if (!result) {
+            return res.status(404).json({ success: false, message: "Task not found" });
+        }
+        return res.status(200).json({ success: true, message: "OK", data: result });
+
+    } catch (error) {
+        return res.status(500).json({ success: false, message: error.message });
+    }
+};
+export { addTask, getTask, deleteTask, updateTask };
