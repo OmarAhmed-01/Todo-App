@@ -5,7 +5,17 @@ import { Context } from '../../context/context.jsx';
 
 const FetchTasks = () => {
 
-    const { formateDateTime, fetchTasks, tasks, deleteTask } = useContext(Context);
+    const { formateDateTime, fetchTasks, tasks, deleteTask, updateTask } = useContext(Context);
+
+    async function handleImportantToggle(task) {
+        const updatedData = { important: !task.important};
+        await updateTask(task._id, updatedData);
+    };
+
+    async function handleCompleteToggle(task) {
+        const updatedData = { completed: !task.completed};
+        await updateTask(task._id, updatedData);
+    };
 
     useEffect(() => {
         fetchTasks();
@@ -27,8 +37,8 @@ const FetchTasks = () => {
                         <p>{task.desc}</p>
                     </div>
                     <div className="task-buttons">
-                        <button><img src={checkSign} alt="" /></button>
-                        <button><img src={priorityHigh} alt="" /></button>
+                        <button onClick={() => handleCompleteToggle(task)}><img src={checkSign} alt="" /></button>
+                        <button onClick={() => handleImportantToggle(task)}><img src={priorityHigh} alt="" /></button>
                         <button onClick={() => deleteTask(task._id)}><img src={deleteIcom} alt="" /></button>
                     </div>
                 </div>

@@ -79,6 +79,17 @@ const ContextProvider = (props) => {
         }
     };
 
+    async function updateTask(taskId, updatedTaskData) {
+        try {
+            const response = await axios.put(`${serverLink}api/updateTask/${taskId}`, updatedTaskData);
+            if(response.status === 200 || response.status === 201){
+                fetchTasks();
+            }
+        } catch (error) {
+            alert("Error updating task", error.message);
+        }
+    };
+
     async function fetchUser() {
         const token = localStorage.getItem('token');
         if(!token){
@@ -140,6 +151,7 @@ const ContextProvider = (props) => {
         tasks,
         setTasks,
         deleteTask,
+        updateTask,
     };
 
     return (
