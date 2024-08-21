@@ -18,4 +18,17 @@ async function addTask(req, res) {
     }
 }
 
-export { addTask };
+async function getTask(req, res) {
+    try {
+        const task = await taskModel.find({ user: req.user.userId });
+        if(!task || task.length === 0){
+            return res.status(404).json({ success: false, message: "Task not found for this user"});
+        }
+        return res.status(200).json({ success: true, task: task});
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ success: false, error: error.message });
+    }
+}
+
+export { addTask, getTask };
