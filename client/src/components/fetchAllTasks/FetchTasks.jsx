@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './fetchTasks.css';
-import { checkSign, deleteIcom, priorityHigh } from '../../assets/assets.js';
+import { checkSign, deleteIcon, priorityHigh } from '../../assets/assets.js';
 import { Context } from '../../context/context.jsx';
 
 const FetchTasks = () => {
@@ -39,7 +39,7 @@ const FetchTasks = () => {
                     <div className="task-buttons">
                         <button onClick={() => handleCompleteToggle(task)}><img src={checkSign} alt="" /></button>
                         <button onClick={() => handleImportantToggle(task)}><img src={priorityHigh} alt="" /></button>
-                        <button onClick={() => deleteTask(task._id)}><img src={deleteIcom} alt="" /></button>
+                        <button onClick={() => deleteTask(task._id)}><img src={deleteIcon} alt="" /></button>
                     </div>
                 </div>
             ))

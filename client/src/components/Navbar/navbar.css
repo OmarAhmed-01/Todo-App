@@ -3,7 +3,8 @@
     display: flex;
     padding: 10px 20px;
     align-items: center;
-    background-color: #EEEEEE;
+    background-color: #6482AD;
+    height: 10vh;
 }
 .navbar-wrapper .navbar-logo{
     width: 50%;
@@ -11,7 +12,7 @@
 .navbar-wrapper .navbar-logo h1{
     cursor: pointer;
     width: fit-content;
-    color: #071952;
+    color: #E2DAD6;
     font-size: 1.5rem;
 }
 .navbar-wrapper .navbar-details{
@@ -24,7 +25,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #071952;
+    color: #E2DAD6;
     font-size: 1rem;
 }
 .navbar-wrapper .navbar-details button{
@@ -34,12 +35,12 @@
     border-radius: 20px;
     padding: 10px;
     cursor: pointer;
-    background-color: #3FA2F6;
+    background-color: #c0b4ae;
     color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transition: background-color 0.3s ease;
 }
 .navbar-wrapper .navbar-details button:hover{
-    background-color: #0F67B1;
+    background-color: #b4a7a1;
     transition: background-color 0.3s ease;
 }

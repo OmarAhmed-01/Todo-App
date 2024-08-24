@@ -1,0 +1,18 @@
+.dashboard-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #F5EDED;
+}
+.dashboard-wrapper .theRest{
+    display: flex;
+    width: 100%;
+    height: 90vh;
+}
+.dashboard-wrapper .important-container{
+    width: 25%;
+    background-color: #E2DAD6;
+}
+.dashboard-wrapper .dashboard-container{
+    width: 75%;
+}
