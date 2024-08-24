@@ -31,7 +31,7 @@ const Important = () => {
         <div className="important-tasks-wrapper">
             {
                 importantTasks.map((task) => (
-                    <div className='individual-task'>
+                    <div className='individual-task' key={task._id}>
                         <h2>{task.title}</h2>
                         <p>{task.desc}</p>
                         <div className="individual-task-buttons">

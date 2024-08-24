@@ -5,7 +5,7 @@ import { Context } from '../../context/context.jsx';
 
 const FetchTasks = () => {
 
-    const { formateDateTime, fetchTasks, tasks, deleteTask, updateTask } = useContext(Context);
+    const { formateDateTime, fetchTasks, tasks, deleteTask, updateTask, loggedInUser } = useContext(Context);
 
     async function handleImportantToggle(task) {
         const updatedData = { important: !task.important};
@@ -15,6 +15,17 @@ const FetchTasks = () => {
     async function handleCompleteToggle(task) {
         const updatedData = { completed: !task.completed};
         await updateTask(task._id, updatedData);
+    };
+
+    const userID = loggedInUser._id;
+
+    function CheckTaskParent() {
+        for (let i = 0; i < tasks.length; i++) {
+            if(tasks[i].user === userID){
+                return true;
+            }
+        }
+        return false;
     };
 
     useEffect(() => {
@@ -27,22 +38,26 @@ const FetchTasks = () => {
             <h1>All Tasks</h1>
         </div>
         {
-            tasks.map((task) => (
-                <div className="fetch-tasks-tasks" key={task._id}>
-                    <div className="task-title">
-                        <h2>{task.title}</h2>
-                        <h3>{formateDateTime(task.updatedAt)}</h3>
+            CheckTaskParent() ? (
+                tasks.map((task) => (
+                    <div className="fetch-tasks-tasks" key={task._id}>
+                        <div className="task-title">
+                            <h2>{task.title}</h2>
+                            <h3>{formateDateTime(task.updatedAt)}</h3>
+                        </div>
+                        <div className="task-desc">
+                            <p>{task.desc}</p>
+                        </div>
+                        <div className="task-buttons">
+                            <button onClick={() => handleCompleteToggle(task)}><img src={checkSign} alt="" /></button>
+                            <button onClick={() => handleImportantToggle(task)}><img src={priorityHigh} alt="" /></button>
+                            <button onClick={() => deleteTask(task._id)}><img src={deleteIcon} alt="" /></button>
+                        </div>
                     </div>
-                    <div className="task-desc">
-                        <p>{task.desc}</p>
-                    </div>
-                    <div className="task-buttons">
-                        <button onClick={() => handleCompleteToggle(task)}><img src={checkSign} alt="" /></button>
-                        <button onClick={() => handleImportantToggle(task)}><img src={priorityHigh} alt="" /></button>
-                        <button onClick={() => deleteTask(task._id)}><img src={deleteIcon} alt="" /></button>
-                    </div>
-                </div>
-            ))
+                ))
+            ) : (
+                <p>No tasks found for this user.</p>
+            )
         }
     </div>
   )
