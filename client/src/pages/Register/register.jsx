@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Context } from '../../context/context';
 import './register.css';
 import { mail, name, usrname, visibility, visibility_off } from '../../assets/assets';
+import PasswordStrengthBar from 'react-password-strength-bar';
 
 const Register = () => {
 
@@ -57,8 +58,8 @@ const Register = () => {
         <div className="register-info">
           <form action="" onSubmit={submitRegister}>
             <div className="form-headers">
-              <h1>Register</h1>
-              <h2>Create your account to start your journey!</h2>
+              <h1>Harmonize.</h1>
+              <h2>Register to start your journey!</h2>
             </div>
             <div className="form-inputs">       
               <div className="register-fullname">
@@ -76,7 +77,7 @@ const Register = () => {
               <div className="register-password">
                 <input type={ !showRegisterPassword ? "password" : "text"} value={password} onChange={handlePasswordChange} placeholder='password'/>
                 <img onClick={handleRegisterPasswordState} src={ !showRegisterPassword ? visibility_off : visibility } alt="" />
-                
+                <PasswordStrengthBar password={password}/>
               </div>
             </div>
             <div className="form-submit">

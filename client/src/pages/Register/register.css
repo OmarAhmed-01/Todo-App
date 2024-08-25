@@ -65,7 +65,8 @@
 .register-info .form-submit a{
     cursor: pointer;
     text-decoration: none;
-    color: red;
+    color: #FF4C4C;
+    font-weight: 600;
 }
 .register-info .form-submit button{
     display: flex;
@@ -95,7 +96,7 @@
 .register-password img{
     position: absolute;
     right: 10px;
-    top: 50%;
+    top: 28%;
     transform: translateY(-50%);
     width: 20px; /* Adjust size of the icon */
     height: 20px;
