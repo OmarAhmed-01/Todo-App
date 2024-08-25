@@ -2,10 +2,11 @@ import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios';
 import { Context } from '../../context/context';
 import './register.css';
+import { mail, name, usrname, visibility, visibility_off } from '../../assets/assets';
 
 const Register = () => {
 
-  const { serverLink, navigate } = useContext(Context); 
+  const { serverLink, navigate, showRegisterPassword, setShowRegisterPassword } = useContext(Context); 
 
   const [fullname, setFullname] = useState("");
   const [username, setUsername] = useState("");
@@ -24,6 +25,9 @@ const Register = () => {
   function handlePasswordChange(event) {
     setPassword(event.target.value);
   };
+  function handleRegisterPasswordState() {
+    setShowRegisterPassword(!showRegisterPassword);
+  }
 
 
   async function submitRegister(event) {
@@ -56,11 +60,24 @@ const Register = () => {
               <h1>Register</h1>
               <h2>Create your account to start your journey!</h2>
             </div>
-            <div className="form-inputs">
-              <input type="text" value={fullname} onChange={handleNameChange} placeholder='fullname'/>
-              <input type="text" value={username} onChange={handleUsernameChange} placeholder='username'/>
-              <input type="email" value={email} onChange={handleEmailChange} placeholder='email'/>
-              <input type="password" value={password} onChange={handlePasswordChange} placeholder='password'/>
+            <div className="form-inputs">       
+              <div className="register-fullname">
+                <input type="text" value={fullname} onChange={handleNameChange} placeholder='fullname'/>
+                <img src={name} alt="" />
+              </div>
+              <div className="register-username">
+                <input type="text" value={username} onChange={handleUsernameChange} placeholder='username'/>
+                <img src={usrname} alt="" />
+              </div>
+              <div className="register-email">
+                <input type="email" value={email} onChange={handleEmailChange} placeholder='email'/>
+                <img src={mail} alt="" />
+              </div>
+              <div className="register-password">
+                <input type={ !showRegisterPassword ? "password" : "text"} value={password} onChange={handlePasswordChange} placeholder='password'/>
+                <img onClick={handleRegisterPasswordState} src={ !showRegisterPassword ? visibility_off : visibility } alt="" />
+                
+              </div>
             </div>
             <div className="form-submit">
               <a href='/login'>Already have an account?</a>

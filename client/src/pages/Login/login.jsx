@@ -17,7 +17,7 @@ const Login = () => {
   function handlePasswordChange(event) {
     setPassword(event.target.value);
   };
-  function handlePasswordState() {
+  function handleLoginPasswordState() {
     setShowLoginPassword(!showLoginPassword);
   }
 
@@ -40,8 +40,8 @@ const Login = () => {
                 <img src={mail} alt="" />
               </div>
               <div className="password-input">
-                <input type={ showLoginPassword ? "text" : "password"} value={password} onChange={handlePasswordChange} placeholder='password'/>
-                <img onClick={handlePasswordState} src={ showLoginPassword ? visibility : visibility_off} alt="" />
+                <input type={ !showLoginPassword ? "password" : "text"} value={password} onChange={handlePasswordChange} placeholder='password'/>
+                <img onClick={handleLoginPasswordState} src={ !showLoginPassword ? visibility_off : visibility } alt="" />
               </div>
             </div>
             <div className="form-submit">

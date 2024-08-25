@@ -88,3 +88,84 @@
 .register-info .form-submit button:hover{
     background-position: right;
 }
+.register-password{
+    position: relative;
+    width: 100%;
+}
+.register-password img{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px; /* Adjust size of the icon */
+    height: 20px;
+    cursor: pointer;
+}
+.register-password input{
+    padding-left: 40px; /* Adjust padding to make room for the icon */
+    height: 40px;
+    font-size: 16px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.register-email{
+    position: relative;
+    width: 100%;
+}
+.register-email img{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px; /* Adjust size of the icon */
+    height: 20px;
+}
+.register-email input{
+    padding-left: 40px; /* Adjust padding to make room for the icon */
+    height: 40px;
+    font-size: 16px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.register-username{
+    position: relative;
+    width: 100%;
+}
+.register-username img{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px; /* Adjust size of the icon */
+    height: 20px;
+}
+.register-username input{
+    padding-left: 40px; /* Adjust padding to make room for the icon */
+    height: 40px;
+    font-size: 16px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.register-fullname{
+    position: relative;
+    width: 100%;
+}
+.register-fullname img{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px; /* Adjust size of the icon */
+    height: 20px;
+}
+.register-fullname input{
+    padding-left: 40px; /* Adjust padding to make room for the icon */
+    height: 40px;
+    font-size: 16px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}

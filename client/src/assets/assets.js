@@ -5,8 +5,8 @@ import deleteIcon from './delete_icon.png';
 import visibility from './visibility.png';
 import visibility_off from './visibility_off.png';
 import mail from './mail.png';
-import fullname from './fullname.png';
-import username from './username.png';
+import name from './fullname.png';
+import usrname from './username.png';
 
 export {
     checkSign,
@@ -16,6 +16,6 @@ export {
     visibility,
     visibility_off,
     mail,
-    fullname,
-    username,
+    name,
+    usrname,
 };
