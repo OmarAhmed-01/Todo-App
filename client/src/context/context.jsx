@@ -8,6 +8,8 @@ const ContextProvider = (props) => {
 
     const [loggedInUser, setLoggedInUser] = useState({});
     const [tasks, setTasks] = useState([]);
+    const [showLoginPassword, setShowLoginPassword] = useState(false);
+    const [showRegisterPassword, setShowRegisterPassword] = useState(false);
 
     const serverLink = "http://localhost:3000/";
     const navigate = useNavigate();
@@ -125,7 +127,6 @@ const ContextProvider = (props) => {
           }
           if(response.data.token){
             localStorage.setItem('token', response.data.token);
-            alert('Login Successful!');
             navigate('/');
           }
         } catch (error) {
@@ -152,6 +153,10 @@ const ContextProvider = (props) => {
         setTasks,
         deleteTask,
         updateTask,
+        showLoginPassword,
+        setShowLoginPassword,
+        showRegisterPassword,
+        setShowRegisterPassword,
     };
 
     return (

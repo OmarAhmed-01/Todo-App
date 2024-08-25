@@ -66,7 +66,8 @@
 .login-info .form-submit a{
     cursor: pointer;
     text-decoration: none;
-    color: red;
+    color: #FF4C4C;
+    font-weight: 600;
 }
 .login-info .form-submit button{
     display: flex;
@@ -88,4 +89,45 @@
 }
 .login-info .form-submit button:hover{
     background-position: right;
+}
+.password-input{
+    position: relative;
+    width: 100%;
+}
+.password-input img{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px; /* Adjust size of the icon */
+    height: 20px;
+    cursor: pointer;
+}
+.password-input input{
+    padding-left: 40px; /* Adjust padding to make room for the icon */
+    height: 40px;
+    font-size: 16px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.email-input{
+    position: relative;
+    width: 100%;
+}
+.email-input img{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px; /* Adjust size of the icon */
+    height: 20px;
+}
+.email-input input{
+    padding-left: 40px; /* Adjust padding to make room for the icon */
+    height: 40px;
+    font-size: 16px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
