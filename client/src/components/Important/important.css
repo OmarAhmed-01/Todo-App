@@ -53,3 +53,8 @@
 .important-wrapper .important-tasks-wrapper .individual-task .individual-task-buttons button img{
     width: 25px;
 }
+.important-wrapper .important-tasks-wrapper .individual-task .strikethrough{
+    text-decoration: line-through; 
+    text-decoration-color: rgb(168, 168, 168);
+    color: rgb(168, 168, 168);
+}

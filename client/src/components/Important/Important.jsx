@@ -32,8 +32,8 @@ const Important = () => {
             {
                 importantTasks.map((task) => (
                     <div className='individual-task' key={task._id}>
-                        <h2>{task.title}</h2>
-                        <p>{task.desc}</p>
+                        <h2 className={task.completed ? "strikethrough" : ""}>{task.title}</h2>
+                        <p className={task.completed ? "strikethrough" : ""}>{task.desc}</p>
                         <div className="individual-task-buttons">
                             <button onClick={() => handleCompleteToggle(task)}><img src={checkSign} alt="" /></button>
                             <button onClick={() => handleImportantToggle(task)}><img src={priorityHigh} alt="" /></button>

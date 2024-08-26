@@ -42,11 +42,11 @@ const FetchTasks = () => {
                 tasks.map((task) => (
                     <div className="fetch-tasks-tasks" key={task._id}>
                         <div className="task-title">
-                            <h2>{task.title}</h2>
+                            <h2 className={task.completed ? "strikethrough" : ""}>{task.title}</h2>
                             <h3>{formateDateTime(task.updatedAt)}</h3>
                         </div>
                         <div className="task-desc">
-                            <p>{task.desc}</p>
+                            <p className={task.completed ? "strikethrough" : ""}>{task.desc}</p>
                         </div>
                         <div className="task-buttons">
                             <button onClick={() => handleCompleteToggle(task)}><img src={checkSign} alt="" /></button>

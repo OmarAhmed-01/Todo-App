@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './login.css';
 import { Context } from '../../context/context.jsx';
-import { mail, visibility, visibility_off } from '../../assets/assets.js';
+import { visibility, visibility_off } from '../../assets/assets.js';
 
 const Login = () => {
 
@@ -37,7 +37,6 @@ const Login = () => {
             <div className="form-inputs">
               <div className="email-input">
                 <input type="email" value={email} onChange={handleEmailChange} placeholder='email'/>
-                <img src={mail} alt="" />
               </div>
               <div className="password-input">
                 <input type={ !showLoginPassword ? "password" : "text"} value={password} onChange={handlePasswordChange} placeholder='password'/>

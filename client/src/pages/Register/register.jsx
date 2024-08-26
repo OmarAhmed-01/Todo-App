@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import axios from 'axios';
 import { Context } from '../../context/context';
 import './register.css';
-import { mail, name, usrname, visibility, visibility_off } from '../../assets/assets';
+import { visibility, visibility_off } from '../../assets/assets';
 import PasswordStrengthBar from 'react-password-strength-bar';
 
 const Register = () => {
