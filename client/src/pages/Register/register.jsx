@@ -64,15 +64,12 @@ const Register = () => {
             <div className="form-inputs">       
               <div className="register-fullname">
                 <input type="text" value={fullname} onChange={handleNameChange} placeholder='fullname'/>
-                <img src={name} alt="" />
               </div>
               <div className="register-username">
                 <input type="text" value={username} onChange={handleUsernameChange} placeholder='username'/>
-                <img src={usrname} alt="" />
               </div>
               <div className="register-email">
                 <input type="email" value={email} onChange={handleEmailChange} placeholder='email'/>
-                <img src={mail} alt="" />
               </div>
               <div className="register-password">
                 <input type={ !showRegisterPassword ? "password" : "text"} value={password} onChange={handlePasswordChange} placeholder='password'/>
