@@ -6,6 +6,7 @@ import { Context } from '../../context/context.jsx';
 const FetchTasks = () => {
 
     const { formateDateTime, fetchTasks, tasks, deleteTask, updateTask, loggedInUser } = useContext(Context);
+    const [searchTask, setSearchTask] = useState("");
 
     async function handleImportantToggle(task) {
         const updatedData = { important: !task.important};
@@ -16,6 +17,10 @@ const FetchTasks = () => {
         const updatedData = { completed: !task.completed};
         await updateTask(task._id, updatedData);
     };
+
+    function handleTaskSearch(event) {
+        setSearchTask(event.target.value);
+    }
 
     const userID = loggedInUser._id;
 
@@ -30,12 +35,13 @@ const FetchTasks = () => {
 
     useEffect(() => {
         fetchTasks();
-    }, [])
+    }, []);
 
   return (
     <div className='fetch-tasks-wrapper'>
         <div className="fetch-tasks-header">
             <h1>All Tasks</h1>
+            <input onChange={handleTaskSearch} value={searchTask} type="text" placeholder='Search...'/>
         </div>
         {
             CheckTaskParent() ? (

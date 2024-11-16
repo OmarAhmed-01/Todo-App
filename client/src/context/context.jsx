@@ -39,7 +39,7 @@ const ContextProvider = (props) => {
                     Authorization: `Bearer ${token}`
                 }
             });
-            setTasks(response.data.task || []);
+            setTasks(response.data.task.reverse() || []);
         } catch (error) {
             console.log(error);
         }
